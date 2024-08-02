@@ -1,117 +1,83 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarryCo - Your Reliable Courier Service</title>
+    <title>CarryCo Courier Services</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 </head>
-<body >
-
-    <!-- Home page -->
-    <section id="home">
-<img src=""/>
-        <h1>Welcome to CarryCo</h1>
-        <p>Your reliable partner for all your courier needs.</p>
-        <img src="images/"
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p>CarryCo has been delivering packages and smiles across the nation for over a decade. Our mission is to provide fast, reliable, and affordable courier services.</p>
-    </section>
-
-    <!-- Services offered Section -->
-    <aside >
+<body>
+    <header>
+        <h1>CarryCo Courier Services</h1>
+        <nav>
+            <ul>
+                <li><a href="#tracking">Real-time Tracking</a></li>
+                <li><a href="#booking">Instant Booking</a></li>
+                <li><a href="#notifications">Notification Alerts</a></li>
+                <li><a href="#optimization">Route Optimization</a></li>
+                <li><a href="#profiles">Profiles</a></li>
+            </ul>
+        </nav>
+        <button id="toggleMode">Toggle Dark/Light Mode</button>
+    </header>
+    <div class="mainContent">
+    <aside class="sidebar">
         <h2>Our Services</h2>
         <ul>
-            <li>Same-day Delivery</li>
-            <li>Next-day Delivery</li>
-            <li>International Shipping</li>
-            <li>Bulk Shipment</li>
+            <li id="sameDay" onclick="showServiceDetails('SameDay')">Same-day Delivery</li>
+            <li id="nextDay" onclick="showServiceDetails('NextDay')">Next-day Delivery</li>
+            <li id="international" onclick="showServiceDetails('International')">International Shipping</li>
+            <li id="bulk" onclick="showServiceDetails('Bulk')">Bulk Shipment</li>
         </ul>
-        
-            <button title="Add Service"> Add service </button>
+        <button title="Add Service" onclick="showAddServiceForm()">Add service</button>
     </aside>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <h2>Client Testimonials</h2>
-        <div class="testimonial">
-            <p>"CarryCo is the best courier service I've ever used! Fast and reliable."</p>
-            <p>- John Doe</p>
-        </div>
-        <div class="testimonial">
-            <p>"I always use CarryCo for my business deliveries. Their service is top-notch."</p>
-            <p>- Jane Smith</p>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <h2>Delivery in Action</h2>
-        <img src="delivery1.jpg" alt="Courier delivering a package">
-        <img src="delivery2.jpg" alt="Courier on a bike">
-        <img src="delivery3.jpg" alt="Courier van">
-    </section>
-
-    <!-- Courier Profile Section -->
-    <section id="profile">
-        <h2>Meet Our Couriers</h2>
-        <div class="courier-profile">
-            <img src="courier1.jpg" alt="Courier Profile">
-            <h3>Michael Johnson</h3>
-            <p>Michael has been with CarryCo for 5 years and is known for his punctuality and friendly service.</p>
-        </div>
-        <div class="courier-profile">
-            <img src="courier2.jpg" alt="Courier Profile">
-            <h3>Sarah Williams</h3>
-            <p>Sarah is a dedicated courier who ensures that every package is delivered on time and with care.</p>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <h3>How can I track my package?</h3>
-            <p>You can track your package using the tracking number provided in your confirmation email.</p>
-        </div>
-        <div class="faq-item">
-            <h3>What is the delivery time for same-day service?</h3>
-            <p>Our same-day delivery service ensures that your package arrives within 8 hours of pickup.</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>If you have any questions or need assistance, please contact us at:</p>
-        <p>Email: support@carryco.com</p>
-        <p>Phone: 1-800-123-4567</p>
-    </section>
-
-    <footer>
-        <!-- <ul class="social-icons">
-            <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
-        </ul> -->
-
-        <!-- Add font awesome icons -->
-<a href="#" class="fa fa-facebook"></a>
-<a href="#" class="fa fa-twitter"></a>
-<a href="#" class="fa fa-instagram"></a>
-<a href="#" class="fa fa-tiktok"></a>
-        <p>&copy; 2024 CarryCo. All rights reserved.</p>
-    </footer>
-
-    <script src="scripts.js"></script>
+    <main class="content">
+        <section id="serviceDetails">
+            <h2>Welcome to CarryCo Courier Services</h2>
+            <p>Select a service from the sidebar to see more details.</p>
+        </section>
+        <section id="addServiceForm" class="hidden">
+            <h2>Add New Service</h2>
+            <form onsubmit="addService(event)">
+                <label for="serviceName">Service Name:</label>
+                <input type="text" id="serviceName" required>
+                <label for="serviceDescription">Description:</label>
+                <textarea id="serviceDescription" required></textarea>
+                <button type="submit">Add Service</button>
+            </form>
+        </section>
+        <section id="tracking" class="hidden">
+            <h2>Real-time Tracking</h2>
+            <p>With CarryCo,you can track your shipment in real-time and how and where your shipment is.</p>
+            <input type="text" id="trackingNumber" placeholder="Enter tracking number">
+            <button id="trackButton">Track</button>
+            <div id="trackingResult"></div>
+        </section>
+        <section id="booking" class="hidden">
+            <h2>Instant Booking</h2>
+            <form onsubmit="bookService(event)">
+                <label for="pickupLocation">Pickup Location:</label>
+                <input type="text" id="pickupLocation" required>
+                <label for="deliveryLocation">Delivery Location:</label>
+                <input type="text" id="deliveryLocation" required>
+                <button type="submit">Book Now</button>
+            </form>
+        </section>
+        <section id="notifications" class="hidden">
+            <h2>Notification Alerts</h2>
+            <p>Receive instant notifications about your shipments.</p>
+            <button id="enableNotifications">Enable Notifications</button>
+        </section>
+        <section id="optimization" class="hidden">
+            <h2>Route Optimization</h2>
+            <p>Our advanced algorithms optimize the best route for your shipments.</p>
+        </section>
+        <section id="profiles" class="hidden">
+            <h2>Profiles</h2>
+            <p>Manage customer and courier profiles.</p>
+        </section>
+    </main>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
-
