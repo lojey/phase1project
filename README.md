@@ -14,6 +14,18 @@ Table of Contents
 Introduction
 CarryCo Courier Services provides an efficient courier service experience. It offers real-time tracking, instant booking, notification alerts, route optimization, and detailed courier profiles to enhance user experience.
 
+TECHNOLOGIES USED 
+    -HTML
+    -CSS
+    -JavaScript 
+
+PROJECT SETUP
+    -Create a new project folder
+    -Clone the repository
+    -Navigate to the projects directory.
+    -Code . to be directed to VS code 
+
+
 Features
 Real-time Tracking
 Instant Booking
@@ -50,24 +62,6 @@ Manage courier profiles, showcasing the skills and experience of each courier.
 Profile API Data
 The website fetches and displays profile data from an API. The data includes the couriers' names, ages, ratings, and images.
 
-Scripts and Functions
-Event Listeners
-javascript
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('toggleMode').addEventListener('click', toggleDarkLightMode);
-    document.getElementById('trackButton').addEventListener('click', trackShipment);
-    document.getElementById('enableNotifications').addEventListener('click', enableNotifications);
-
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            showSection(link.getAttribute('href').substring(1));
-        });
-    });
-});
-
 
 Function Definitions
 showServiceDetails(serviceId): Displays details of the selected service.
@@ -81,35 +75,6 @@ enableNotifications(): Enables notifications for shipment updates.
 
 
 Fetch API Data
-javascript
-document.addEventListener('DOMContentLoaded', async function() {
-    const apiDataHolder = document.getElementById('apiContent');
-
-    try {
-        const response = await axios.get('http://localhost:3000/profiles');
-        const posts = response.data;
-
-        console.log(posts);
-
-        posts.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.classList.add('post-card');
-
-            postElement.innerHTML = 
-                `<img src="${post.image}" alt="profile image"/>
-                <h3>NAME: ${post.name}</h3>
-                <p>AGE: ${post.age}</p>
-                <p>RATINGS: ${post.rating}</p>
-            `;
-            apiDataHolder.appendChild(postElement);
-        });
-    } catch (error) {
-        apiDataHolder.innerHTML = '<p>FAILED TO FETCH DATA..</p>';
-    }
-});
-
-
-
 To run Json Server use
 
 npx json-server db.json
