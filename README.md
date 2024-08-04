@@ -78,3 +78,9 @@ Fetch API Data
 To run Json Server use
 
 npx json-server db.json
+
+Commit to the repository by 
+ 1. git add 
+ 2. git commit -m" add message"
+ 3.git push
+ 
